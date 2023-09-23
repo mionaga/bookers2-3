@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <script src="https://kit.fontawesome.com/1ccc9ca859.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  
+
   <body>
-    
+
     <header>
     <% if user_signed_in? %>
     <ul>
       <li>
-         <%= link_to "Bookers", "user_path(current_user.id)" %>
+         <%= link_to "Bookers", root_path %>
       </li>
       <li>
         <%= link_to user_path(current_user.id) do %>
@@ -34,13 +34,13 @@
          <i class="fa-solid fa-book-open"></i>Books
          <% end %>
         </li>
-    
+
         <li>
           <%= link_to  destroy_user_session_path, method: :delete do %>
           <i class="fa-solid fa-right-from-bracket"></i>Log Out
           <% end %>
         </li>
-      </ul>  
+      </ul>
     <% else %>
      <ul>
         <li><%= link_to "Bookers",root_path %>
@@ -52,8 +52,8 @@
         <%= link_to about_path do %>
         <i class="fa-solid  fa-link"></i>About
         <% end %>
-        </li>  
-      
+        </li>
+
         <li>
         <%= link_to new_user_registration_path do %>
         <i class="fa-solid fa-user-plus"></i>Sign up
@@ -64,16 +64,16 @@
         <i class="fa-solid fa-right-to-bracket"></i>Log in
         <% end %>
         </li>
-     </ul>  
-      
-      
+     </ul>
+
+
      <% end %>
     </header>
-    
-    
+
+
     <%= yield %>
   </body>
 </html>
 
 
-  
+
