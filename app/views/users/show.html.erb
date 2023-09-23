@@ -1,0 +1,30 @@
+<!--user情報-->
+<%= render 'books/info', user:@user %>
+
+
+<!--NewBookの投稿-->
+<%= render 'books/create_book', book:@book %>
+
+
+<!-- booksの投稿一覧 -->
+<h1>Books</h1>
+
+<table class="books-table">
+  <thead>
+    <th>Title</th>
+    <th>Opinion</th>
+  </thead>
+
+    <tbody>
+      <% @books.each do |book| %>
+      <tr>
+        <td><%= image_tag @user.get_profile_image(100,100) %></td>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
+      </tr>
+
+
+      <% end %>
+    </tbody>
+
+</table>

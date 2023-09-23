@@ -1,0 +1,29 @@
+<!--user情報-->
+<%= render 'books/info', user:@user %>
+<!--NewBookの投稿-->
+<%= render 'books/create_book', book:@book_  %>
+
+
+
+<!--users-->
+<h1>Users</h1>
+
+<table class="users-table">
+  <thead>
+    <th>image</th>
+    <th>name</th>
+  </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= image_tag user.get_profile_image(100,100) %></td>
+        <td><%= user.name %></td>
+        <td><%= link_to "Show",user_path(@user.id) %></td>
+      </tr>
+
+
+      <% end %>
+    </tbody>
+
+</table>
