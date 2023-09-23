@@ -7,7 +7,7 @@
   <h3>name<%= user.name %></h3>
   <h3>introduction<%= user.introduction %></h3>
   <div class="edit_icons">
-    <% link_to edit_user_path(user.id) do %>
+    <%= link_to edit_user_path(user.id) do %>
       <i class="fa-solid fa-user-plus"></i>
     <% end %>
   </div>
