@@ -2,13 +2,16 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
+
      if @book.save
-    redirect_to book_path(@book.id)
+       flash[:notice] ="You have saved book successfully"
+       redirect_to book_path(@book.id)
      else
+    
        @books= Book.all
+       @user=current_user
        render :index
      end
-     @user = User.find(@book.user_id)
   end
 
   def show
@@ -25,14 +28,19 @@ class BooksController < ApplicationController
   def index
     @books=Book.all
     @user=current_user
-    @book_new=Book.new
+    @book=Book.new
 
   end
 
   def update
     @book=Book.find(params[:id])
-    @book.update(book_params)
-    redirect_to book_path(@book.id)
+    if @book.update(book_params)
+      flash[:notice] ="You have saved book successfully"
+      redirect_to book_path(@book.id)
+    else
+       flash.now[:notice]="errors prohibited this obj from being saved:"
+       render :edit
+    end
   end
 
   def destroy

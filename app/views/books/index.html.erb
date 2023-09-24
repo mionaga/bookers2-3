@@ -1,23 +1,30 @@
-<!--user情報-->
-<%= render 'info', user:@user %>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>error prohibited this obj from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+    <!--user情報-->
+    <%= render 'info', user: @user %>
+    <!--NewBookの投稿-->
+    <%= render 'create_book', book: @book %>
+    </div>
 
-<!--NewBookの投稿-->
-<%= render 'create_book', book:@book_new %>
-
-
-<!--Books一覧画面-->
-
-
-<h1>Books</h1>
-
-<table class="books-table">
-  <thead>
-    <th>Title</th>
-    <th>Opinion</th>
-  </thead>
-
-
+  <div class="col-md-8 offset-md-1">
+   <!--Books一覧画面-->
+   <h1>Books</h1>
+    <table class="table table-hover table-inverse">
+      <thead>
+        <th>Title</th>
+        <th>Opinion</th>
+        <th colspan="3"></th>
+     </thead>
     <tbody>
      <% @books.each do |book| %>
       <tr>
@@ -31,6 +38,9 @@
       </tr>
      <% end %>
     </tbody>
+   </table>
+   </div>
 
+</div>
+</div>
 
-</table>

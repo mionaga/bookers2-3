@@ -1,15 +1,23 @@
 <!--@user → user -->
-<h1>User info</h1>
 
-<div>
+     <h1>User info</h1>
 
-  <%= image_tag user.get_profile_image(100,100) %>
-  <h3>name<%= user.name %></h3>
-  <h3>introduction<%= user.introduction %></h3>
-  <div class="edit_icons">
-    <%= link_to edit_user_path(user.id) do %>
-      <i class="fa-solid fa-user-plus"></i>
-    <% end %>
-  </div>
+      <table class="table">
+        <tbody>
+          <tr><%= image_tag user.get_profile_image(100,100) %></tr>
+          <tr>
+            <th>name</th>
+            <th>introduction</th>
+          </tr>
+          <tr>
+          <td><%= user.name %></td>
+          <td><%= user.introduction %></td>
+          </tr>
+        </tbody>
+      </table>
 
-</div>
+      <div class="btn btn-outline-secondary btn-block edit_user_135206">
+        <%= link_to edit_user_path(user.id) do %>
+          <i class="fa-solid fa-user-gear"></i>
+        <% end %>
+      </div>
