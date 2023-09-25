@@ -1,0 +1,20 @@
+<!--@user → user -->
+
+     <h1>User info</h1>
+
+      <table class="table">
+        <tbody>
+          <tr><%= image_tag user.get_profile_image(100,100) %></tr>
+          <tr>
+            <th>name</th>
+            <th>introduction</th>
+          </tr>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.introduction %></td>
+
+
+      　     
+           </tr>
+        </tbody>
+      </table>

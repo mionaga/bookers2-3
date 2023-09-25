@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       flash[:notice]="You have updated user successfully"
       redirect_to user_path(@user.id)
     else
-      flash.now[:notice]="1error prohibited this obj from being saved"
+      
       render :edit
     end
   end
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   def is_matching_login_user
     user = User.find(params[:id])
     unless user.id == current_user.id
-      redirect_to books_path
+      redirect_to user_path(current_user.id)
     end
   end
 end

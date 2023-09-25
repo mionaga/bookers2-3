@@ -6,6 +6,10 @@
   <%= f.text_field :title %>
   <h4>opinion</h4>
   <%= f.text_area :body %>
-  <%= f.submit 'create book' %>
+  
+  <div class="form-group">
+    <input type="hidden" name="commit" class="btn btn-success" >
+    <%= f.submit 'Create Book' %>
+  </div>
 
 <% end %>
